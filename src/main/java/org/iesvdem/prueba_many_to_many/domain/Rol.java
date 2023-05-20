@@ -1,10 +1,7 @@
 package org.iesvdem.prueba_many_to_many.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +23,7 @@ public class Rol {
     //Lado esclavo: no puedo persistir usuarios de la coleccion a través de la persistencia de rol.
     @ManyToMany(
             mappedBy = "roles")
+    @ToString.Exclude
     Set<Usuario> usuarios = new HashSet<>();
 
 }

@@ -27,7 +27,7 @@ public class Usuario {
 
     //Lado maestro: puesto que tengo cascade de PERSITS (salvar primera vez) y MERGE (actualizar siguientes veces con cambios)
     //si quiero guardar usuarios con roles por primera vez
-    @ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+    @ManyToMany( fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
